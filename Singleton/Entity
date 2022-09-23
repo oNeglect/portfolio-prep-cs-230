@@ -1,0 +1,57 @@
+package src.com.gamingroom;
+//Lawrence Arundel Revision and implementation of class
+public class Entity {
+	/**
+	 * Private variables name and id for Entity class
+	 */
+	private long id;
+	private String name;
+
+	/**
+	 * Constructor for Entity class
+	 */
+	@SuppressWarnings("unused")
+	private Entity() {
+
+	}
+
+	/**
+	 * Constructor for Entity class which takes id and name and sets its private
+	 * variables equal to the set parameters
+	 * 
+	 * @param id   the unique id of the Entity
+	 * @param name the unique name of the Entity
+	 */
+	public Entity(long id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	/**
+	 * Returns the id given for the certain Entity
+	 * 
+	 * @return the id given for the certain Entity variable type long
+	 */
+	public long getId() {
+		return id;
+	}
+
+	/**
+	 * Returns the name given for the certain Entity
+	 * 
+	 * @return the name given for the certain Entity variable type String
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * Returns a String which can be used for multiple applications
+	 * 
+	 * @return a String which can be used for multiple applications
+	 */
+	public String toString() {
+		return "Entity [id=" + id + ", name=" + name + "]";
+	}
+}
+
