@@ -1,0 +1,70 @@
+package src.com.gamingroom;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+/**
+ * A simple class to hold information about a team
+ * <p>
+ * Notice the overloaded constructor that requires an id and name to be passed
+ * when creating. Also note that no mutators (setters) defined so these values
+ * cannot be changed once a team is created.
+ * </p>
+ * 
+ * @author coce@snhu.edu
+ *
+ */
+
+//Lawrence Arundel revision
+public class Team extends Entity {
+	/**
+	 * A list of the active players
+	 */
+	private List<Player> players = new ArrayList<Player>();
+
+	/*
+	 * Constructor with an identifier and name
+	 */
+	public Team(long id, String name) {
+		super(id, name);
+	}
+
+	@SuppressWarnings("null")
+	public Player addPlayer(String name) {
+		//Lawrence Arundel revision
+		// a local player instance
+		Player player = null;
+
+		// Create iterator object which iterates through list of players in player list
+		// The iterator pattern is used to gain access to elements within the collection
+		// of games
+		// in a sequential manner without any need to know its underlying representation
+		// The iterator pattern falls under behavioral pattern category
+		Iterator<Player> iteratePlayerList = players.iterator();
+		//Lawrence Arundel revision
+		// While loop which iterates through the list and
+		// checks to see if the player exists. This iterator checks each position within
+		// the list and compares it to the name given.
+		while (iteratePlayerList.hasNext()) {
+			// If the player exists, return the existing instance of the player name and save
+			// name equal to place holder name as requirement from user to keep names unique
+			if (name.compareToIgnoreCase(iteratePlayerList.next().getName()) == 0) {
+				name = "Placeholder Name";
+				player = new Player(super.getId(), name);
+				return player;
+			}
+		}
+		// if not found, make a new player instance and add to list of players
+		if (player == null) {
+			player = new Player(super.getId(), name);
+			players.add(player);
+		}
+		return player;
+	}
+
+	@Override
+	public String toString() {
+		return "Team [id=" + super.getId() + ", name=" + super.getName() + "]";
+	}
+}
