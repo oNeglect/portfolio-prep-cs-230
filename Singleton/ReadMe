@@ -1,0 +1,25 @@
+Part II. Java Application: Use the code you submitted in the Project One Milestone to continue developing the game 
+application in this project. Be sure to correct errors and incorporate feedback before submitting Project One.
+
+Begin by reviewing the base Entity class. It contains the attributes ‘id’ and ‘name’, implying that all entities in 
+the application will have an identifier and name.
+
+Software Design Patterns: Review the GameService class. Notice the static variables holding the next identifier to be 
+assigned for game id, team id, and player id.
+
+Referring back to the Project One Milestone, be sure that you use the singleton pattern to adapt an ordinary class, 
+so only one instance of the GameService class can exist in memory at any given time. This can be accomplished by 
+creating unique identifiers for each instance of a game, team, or player.Your client has requested that the game and 
+team names be unique to allow users to check whether a name is in use when choosing a team name. Referring back to the 
+
+Project One Milestone, be sure that you use the iterator pattern to complete the addGame() and getGame() methods.
+Create a base class called Entity. The Entity class must hold the common attributes and behaviors (as shown in the UML 
+diagram provided in the Supporting Materials section below). Refactor the Game class to inherit from this new Entity 
+class. Complete the code for the Player and Team classes. Each class must derive from the Entity class, as demonstrated 
+in the UML diagram.
+
+Every team and player must have a unique name by searching for the supplied name prior to adding the new instance. 
+Use the iterator pattern in the addTeam() and addPlayer() methods.Functionality and Best Practices. Once you are 
+finished coding, use the main() method provided in the ProgramDriver class to run and test the game application to 
+ensure it is functioning properly.Be sure your code demonstrates industry standard best practices to enhance the 
+readability of your code, including appropriate naming conventions and in-line comments that describe the functionality.
