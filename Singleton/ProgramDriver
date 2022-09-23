@@ -1,0 +1,69 @@
+package src.com.gamingroom;
+
+/**
+ * Application start-up program
+ * 
+ * @author coce@snhu.edu Lawrence Arundel References
+ * 
+ *         Iteration pattern purpose definition
+ *         https://www.tutorialspoint.com/design_pattern/iterator_pattern.htm#:~:text=Iterator%20pattern
+ *         %20is%20very%20commonly,falls%20under%20behavioral%20pattern%20category.
+ * 
+ *         Singleton Pattern purpose definition
+ *         https://en.wikipedia.org/wiki/Singleton_pattern#:~:text=In%20software%20engineering%2C%20the
+ *         %20singleton,coordinate%20actions%20across%20the%20system.
+ */
+public class ProgramDriver {
+
+	/**
+	 * The one-and-only main() method
+	 * 
+	 * @param args command line arguments
+	 */
+	public static void main(String[] args) {
+		//Lawrence Arundel revision
+		// Obtain reference to the singleton object GameService
+		GameService service = GameService.getInstance();
+		System.out.println("\nAbout to test initializing game data...");
+
+		// initialized with some game data, team data, and player data.
+		// This game data suggests that matching ID's from the game, players, and team
+		// represent
+		// The game's participants and team
+		// EX: if game id = 1, then players and teams with id = 1 are included in that game.
+		// game.
+		// If game = 2, then players and teams with id = 2 are included in that game.
+		// If a game name has multiple instances, or a team name has multiple instances, or a
+		// player name has multiple instances
+		// then output will equal "Placeholder Name"
+		// Each team must have unique players, if they do not, placehodler name will
+		// show on output.
+		// Below shows an example of this occurance.
+		// attempted to display checks using an iterative pattern.
+		@SuppressWarnings("null")
+		Game game1 = service.addGame("Game #1");
+		System.out.println(game1);
+		Team team1 = game1.addTeam("Celtics");
+		System.out.println(team1);
+		Team team2 = game1.addTeam("Pistons");
+		System.out.println(team2);
+		Player player1 = team1.addPlayer("Pippen");
+		System.out.println(player1);
+		Player player2 = team2.addPlayer("Ben");
+		System.out.println(player2);
+		Game game2 = service.addGame("Game #1");
+		System.out.println(game2);
+		Team team3 = game2.addTeam("Lakers");
+		System.out.println(team3);
+		Team team4 = game2.addTeam("Lakers");
+		System.out.println(team4);
+		Player player3 = team3.addPlayer("James");
+		System.out.println(player3);
+		Player player4 = team3.addPlayer("James");
+		System.out.println(player4);
+
+		// use another class to prove there is only one instance
+		SingletonTester tester = new SingletonTester();
+		tester.testSingleton();
+	}
+}
