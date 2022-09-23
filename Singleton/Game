@@ -1,0 +1,80 @@
+package src.com.gamingroom;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+/**
+ * A simple class to hold information about a game
+ * 
+ * <p>
+ * Notice the overloaded constructor that requires an id and name to be passed
+ * when creating. Also note that no mutators (setters) defined so these values
+ * cannot be changed once a game is created.
+ * </p>
+ * 
+ * @author coce@snhu.edu
+ *
+ */
+public class Game extends Entity {
+	/**
+	 * A list of the active teams
+	 */
+	private List<Team> teams = new ArrayList<Team>();
+
+	/**
+	 * Constructor with an identifier and name which calls super class (Entity) to
+	 * construct object to add in Team list
+	 */
+	public Game(long id, String name) {
+		super(id, name);
+	}
+
+	/**
+	 * Returns Team to add to Team list
+	 * 
+	 * @param Name of team type String
+	 * @return Team object in the form of Array List
+	 */
+	public Team addTeam(String name) {
+
+		// a local team instance
+		Team team = null;
+
+		// Create iterator object which iterates through list of teams in team list
+		// The iterator pattern is used to gain access to elements within the collection
+		// of games
+		// in a sequential manner without any need to know its underlying representation
+		// The iterator pattern falls under behavioral pattern category
+		Iterator<Team> iterateTeamList = teams.iterator();
+
+		// While loop which iterates through the list and
+		// checks to see if the team exists. This iterator checks each position within
+		// the list and compares it to the name given.
+		while (iterateTeamList.hasNext()) {
+			// If the team exists, return the existing instance of the team name
+			// name equal to place holder name as requirement from user to keep names unique
+			if (name.compareToIgnoreCase(iterateTeamList.next().getName()) == 0) {
+				name = "Placeholder Name";
+				team = new Team(super.getId(), name);
+				return team;
+			}
+		}
+		// if not found, make a new team instance and add to list of teams
+		if (team == null) {
+			team = new Team(super.getId(), name);
+			teams.add(team);
+		}
+		return team;
+	}
+
+	@Override
+	/**
+	 * @return String to display Team and applicable Id and names of various teams
+	 */
+	public String toString() {
+
+		return "Game [id=" + super.getId() + ", name=" + super.getName() + "]";
+	}
+
+}
