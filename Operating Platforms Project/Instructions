@@ -1,0 +1,33 @@
+Competency
+In this project, you will demonstrate your mastery of the following competency:
+
+Analyze the characteristics of and techniques specific to various systems architectures
+Scenario
+You work for Creative Technology Solutions (CTS) as a Technology Consultant. First, you introduced your client, 
+The Gaming Room, to different approaches they can use as they expand their game onto various operating systems. You then explained the integration of the client’s game in a distributed environment. 
+Now, you will explain how to apply the client’s needs to the architectures of the different operating platforms available.
+
+Logo for The Gaming Room
+In relation to their game, Draw It or Lose It, you have been asked to:
+
+Explain the operating system architectures for different operating systems.
+Analyze the differential file system components that represent a collection of data.
+Explain the functions of memory and storage management.
+Identify memory management techniques.
+Describe distributed systems and the networks that interconnect them.
+Directions
+Analyze the characteristics of and techniques specific to various systems architectures and make a recommendation to The Gaming Room. Specifically, address the following in the Recommendations section of the software design document:
+
+Operating Platform: Recommend an appropriate operating (server) platform that will allow The Gaming Room to expand Draw It or Lose It to other computing environments.
+Operating Systems Architectures: Describe the details of the chosen operating platform architectures.
+Storage Management: Identify an appropriate storage management system to be used with the recommended operating platform.
+Memory Management: Explain how the recommended operating platform uses memory management techniques for the Draw It or Lose It software.
+Distributed Systems and Networks: Knowing that the client would like Draw It or Lose It to communicate between various platforms, explain how this may be accomplished with distributed software and the network that connects the devices. Consider the dependencies between the components within the distributed systems and networks (connectivity, outages, and so on).
+Security: Security is a must-have for the client. Explain how to protect user information on and between various platforms. Consider the user protection and security capabilities of the recommended operating platform.
+What to Submit
+To complete this project, you must submit the following:
+
+Software Design Document
+Use the Software Design Template provided in Project One that you have been building on and complete the Recommendations section.
+
+Please note: You will only be graded on the sections relevant to Project Three that are outlined in the Directions and Rubric. Although it may be helpful to implement feedback from your instructor on aspects that were outlined in Projects One and Two, it is not required for the Project Three submission. The purpose of building on this document is to have one complete document at the end of the course.
