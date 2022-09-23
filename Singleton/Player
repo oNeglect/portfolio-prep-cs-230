@@ -1,193 +1,27 @@
 package src.com.gamingroom;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 /**
- * A singleton service for the game engine This singleton service class is used
- * to only instatiate one instance of the class This will help control object
- * creation, limiting the number to one But it also allows the flexibility to
- * create more objects if the situation changes How this singleton pattern
- * relates to this project is that the user can only create One instance of the
- * game at a time. This will help with memory, efficiency, and various other
- * ways to improve game performance.
+ * A simple class to hold information about a player
+ * <p>
+ * Notice the overloaded constructor that requires an id and name to be passed
+ * when creating. Also note that no mutators (setters) defined so these values
+ * cannot be changed once a player is created.
+ * </p>
  * 
  * @author coce@snhu.edu
+ *
  */
-public class GameService {
-
-	/**
-	 * A list of the active games
-	 */
-	private static List<Game> games = new ArrayList<Game>();
+public class Player extends Entity {
 
 	/*
-	 * Holds the next game identifier
+	 * Constructor with an identifier and name
 	 */
-	private static long nextGameId = 1;
-
-	//Lawrence Arundel revision
-	/*
-	 * Holds the next player identifier
-	 */
-	private static long nextPlayerId = 1;
-	
-	//Lawrence Arundel revision
-	/*
-	 * Holds the next team identifier
-	 */
-	private static long nextTeamId = 1;
-
-	// Creates the single object instance for singleton class
-	private static GameService service = new GameService();
-
-	/**
-	 * Constructor for singleton class
-	 */
-
-	private GameService() {
-
+	public Player(long id, String name) {
+		super(id, name);
 	}
 
-	/**
-	 * Getter for the singleton object class
-	 * 
-	 * @return the instance of the singleton object
-	 */
-
-	public static GameService getInstance() {
-		return service;
-	}
-
-	/**
-	 * Construct a new game instance
-	 * 
-	 * @param name the unique name of the game
-	 * @return the game instance (new or existing)
-	 */
-
-	public Game addGame(String name) {
-		// a local game instance
-		Game game = null;
-
-		//Lawrence Arundel revision
-		// Create iterator object which iterates through list of games in games list
-		// The iterator pattern is used to gain access to elements within the collection
-		// of games
-		// in a sequential manner without any need to know its underlying representation
-		// The iterator pattern falls under behavioral pattern category
-		Iterator<Game> iterateGameList = games.iterator();
-
-		// While loop which iterates through the list and
-		// checks to see if the game exists. This iterator checks each position within
-		// the list and compares it to the name given.
-		while (iterateGameList.hasNext()) {
-			// If the game exists, return the existing instance of the game
-			// name equal to place holder name as requirement from user to keep names unique
-			if (name.compareToIgnoreCase(iterateGameList.next().getName()) == 0) {
-				name = "Placeholder Name";
-				game = new Game(nextGameId, name);
-				return game;
-			}
-		}
-		// if not found, make a new game instance and add to list of games
-		if (game == null) {
-			game = new Game(nextGameId++, name);
-			games.add(game);
-		}
-		// return the new/existing game instance to the caller
-		return game;
-	}
-
-	/**
-	 * Returns the game instance with the specified id.
-	 * 
-	 * @param id unique identifier of game to search for
-	 * @return requested game instance
-	 */
-	public Game getGame(long id) {
-		// Declare Variables
-
-		// a local game instance
-		@SuppressWarnings("unused")
-		Game game = null;
-
-		//Lawrence Arundel revision
-		// Create iterator object which iterates through list of games in games list
-		// The iterator pattern is used to gain access to elements within the collection
-		// of games
-		// in a sequential manner without any need to know its underlying representation
-		// The iterator pattern falls under behavioral pattern category
-		Iterator<Game> iterateGameList = games.iterator();
-
-		// While loop which iterates through the list and
-		// checks to see if the game exists. This iterator checks each position within
-		// the list and compares it to the id given.
-		while (iterateGameList.hasNext()) {
-			// If the id matches within the iteration, then assign that instance to the
-			// local variable
-			if (id + 1 == iterateGameList.next().getId()) {
-				game = new Game(id + 1, games.get((int) id).getName());
-			}
-		}
-		return game;
-	}
-
-	/**
-	 * Returns the game instance with the specified name.
-	 * 
-	 * @param name unique name of game to search for
-	 * @return requested game instance
-	 */
-	public Game getGame(String name) {
-
-		// a local game instance
-		Game game = null;
-
-		//Lawrence Arundel revision
-		// Create iterator object which iterates through list of games in games list
-		// The iterator pattern is used to gain access to elements within the collection
-		// of games
-		// in a sequential manner without any need to know its underlying representation
-		// The iterator pattern falls under behavioral pattern category
-		Iterator<Game> iterateGameList = games.iterator();
-
-		// While loop which iterates through the list and
-		// checks to see if the game exists. This iterator checks each position within
-		// the list and compares it to the name given.
-		while (iterateGameList.hasNext()) {
-			if (name.compareToIgnoreCase(iterateGameList.next().getName()) == 0) {
-				game = new Game(iterateGameList.next().getId(), name);
-			}
-		}
-		return game;
-	}
-
-	/**
-	 * Returns the number of games currently active
-	 * 
-	 * @return the number of games currently active
-	 */
-	public int getGameCount() {
-		return games.size();
-	}
-
-	/**
-	 * Returns the next player identification number
-	 * 
-	 * @return the number identified by the player
-	 */
-	public long getNextPlayerId() {
-		return nextPlayerId;
-	}
-
-	/**
-	 * Returns the next team identification number
-	 * 
-	 * @return the number identified by the team
-	 */
-	public long getNextTeamId() {
-		return nextTeamId;
+	@Override
+	public String toString() {
+		return "Player [id=" + super.getId() + ", name=" + super.getName() + "]";
 	}
 }
