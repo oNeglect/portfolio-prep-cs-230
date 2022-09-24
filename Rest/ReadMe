@@ -1,0 +1,2 @@
+Understanding of how RESTful operates given the correct constraints. Utilizes the various structures to perform
+validation checks on users that attempt to log in to the running server, and outputs the database within the system.
